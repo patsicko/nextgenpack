@@ -24,12 +24,12 @@ export default function RootLayout({
      
       
        <body className={` ${inter.className}`}>
-    <div className="h-[100vh] bg-slate-300 w-[100vw] flex flex-col items-center justify-between">
+    <div className="min-h-[100vh] h-auto bg-slate-300 w-[100vw] flex flex-col items-center justify-between">
 
-        { <header className=" bg-slate-400 text-white text-2xl  py-4 px-6 w-full ">
+        { <header className=" bg-slate-400 text-white text-2xl fixed z-40  py-4 px-6 w-full  ">
         <Links/>
          </header> }
-         <div className="">
+         <div className=" mt-24">
          {children}
          </div>
 
