@@ -8,7 +8,7 @@ function PostCard() {
     const formattedDate = new Date(timestamp).toLocaleString();
 
   return (
-    <div className='mb-8'> 
+    <div className='mb-8 w-4/5 p-4 mx-4'> 
       
         <div className='flex items-center justify-center'>
             <div className='h-[300px] w-[300px] relative'  >
@@ -21,7 +21,7 @@ function PostCard() {
 
         <div>
             <div className='text-2xl font-bold'>Title</div>
-            <div>Description</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ea facilis repellendus fugiat quidem iusto voluptas molestias fugit fuga nisi ex error labore illum rerum sunt aut modi, deserunt nemo.</div>
             <Link href={''} className='text-blue-600'>Read more</Link>
         </div>
      
