@@ -1,8 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import Navbar from '../components/navbar/Navbar'
+import { connectDB } from '../lib/utils'
 
 function HomePage() {
+
+ 
   return (
 
     <div className='flex flex-col justify-center items-center '>
