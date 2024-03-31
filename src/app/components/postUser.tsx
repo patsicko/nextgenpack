@@ -28,9 +28,10 @@ async function PostUser({userId}:{userId:any}) {
 
   return (
     <div className='flex items-center justify-start gap-4'>
-      <div>
-        <Image src={'/avatar.png'} width={50} className='rounded-full' height={50} alt=""/>
-       </div>
+         {
+           <div>
+        <Image src={postUser.img? postUser.img: '/avatar.png'} width={50} className='rounded-full' height={50} alt=""/>
+       </div>}
          <div>
          {postUser.username}
         </div>     

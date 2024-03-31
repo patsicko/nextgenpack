@@ -5,6 +5,19 @@ import PostUser from '@/app/components/postUser';
 import { getSinglePost } from '@/app/lib/data';
 import { Post } from '@/app/components/postCard';
 
+export const generateMetadata = async({params}:{params:any})=>{
+
+  const {slug} = params;
+
+  const post = await getSinglePost(slug);
+
+  return {
+    title:post.title,
+    description:post.desc
+  }
+
+}
+
 // const getPost = async(slug:number) =>{
 
 //     const post = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`,{cache:'no-store'});
@@ -26,16 +39,14 @@ const post :any = await getSinglePost(slug);
 
 
   return (
-    <div className='w-full border'>
+    <div className='w-full justify-center items-center border '>
       <div className='flex  gap-20 m-8 '>
         {post.img && 
 
          <div className='w-1/4'>
           <Image src={post.img} alt='' priority  width={500} height={500} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  />
         </div>}
-     
-         
-            
+
               <div className='w-3/4'>
 
                   <h1 className='text-3xl font-bold'>{post.title}</h1>
@@ -58,11 +69,7 @@ const post :any = await getSinglePost(slug);
                 praesentium harum quasi, dolor porro in. 
                 </div>
                 
-              </div>
-
-
-            
-           
+              </div>  
       
       </div>
     </div>

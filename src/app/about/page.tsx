@@ -1,6 +1,13 @@
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import Image from 'next/image'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "About us",
+  description: "We are the next generation pack hub",
+};
+
 
 function AboutPage() {
   return (

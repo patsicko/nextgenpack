@@ -3,6 +3,13 @@ import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import PostCard, { Post } from '../components/postCard'
 import { getPosts } from '../lib/data'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Blogs",
+    description: "These are tech blogs",
+  };
+  
 
 
 // const fetchPost = async()=>{

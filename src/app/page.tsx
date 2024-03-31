@@ -3,7 +3,7 @@ import HomePage from './home/page'
 
 function page() {
   return (
-    <div className=''>
+    <div className='flex items-center justify-center '>
      <HomePage/>
     </div>
   )
