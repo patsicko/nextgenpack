@@ -1,9 +1,26 @@
+
+import { auth, signIn } from '@/app/lib/auth'
 import React from 'react'
 
-function Login() {
+async function Login() {
+  
+  const session = await auth();
+
+  console.log(session)
+
+  const handleGithubLogin = async()=>{
+ "use server"
+ await signIn("github")
+
+  }
+
+
+
   return (
     <div>
-      Login is working
+      <form action={handleGithubLogin}>
+        <button>Login with github</button>
+      </form>
     </div>
   )
 }
