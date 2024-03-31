@@ -18,23 +18,23 @@ export const generateMetadata = async({params}:{params:any})=>{
 
 }
 
-// const getPost = async(slug:number) =>{
+const getPost = async(slug:number) =>{
 
-//     const post = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`,{cache:'no-store'});
+    const post = await fetch(`http://localhost:3000/api/blogs/${slug}`,{cache:'no-store'});
 
-//     if(!post.ok){
-//         throw new Error('something went wrong');
-//     }
+    if(!post.ok){
+        throw new Error('something went wrong');
+    }
 
-//     return await post.json();
-// }
+    return await post.json();
+}
 
 async function SinglePost({params}:{params:any}) {
 
 const {slug} = params;
 
 
-const post :any = await getSinglePost(slug);
+const post :any = await getPost(slug);
 
 
 

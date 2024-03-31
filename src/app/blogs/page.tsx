@@ -12,23 +12,23 @@ export const metadata: Metadata = {
   
 
 
-// const fetchPost = async()=>{
-//     const data = await fetch('https://jsonplaceholder.typicode.com/posts',{next:{revalidate:3600}})
+const fetchPost = async()=>{
+    const data = await fetch('http://localhost:3000/api/blogs',{next:{revalidate:3600}})
 
-//     if(!data){
-//         throw new Error('something went wrong')
-//     }
-//     return await data.json()
-// }
+    if(!data){
+        throw new Error('something went wrong')
+    }
+    return await data.json()
+}
 
 
 async function BlogPage() {
 
     
 
-    // const posts:Post[] = await fetchPost();
+    const posts = await fetchPost();
 
-const posts = await getPosts()
+// const posts = await getPosts()
     
     
    
@@ -38,8 +38,8 @@ const posts = await getPosts()
    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mx-16'>
 
     { 
-    posts.map(post=>(
-        <PostCard post={post} key={post.id} />
+    posts.map((post: Post)=>(
+        <PostCard key={post.title} post={post}  />
     ))
         
     }

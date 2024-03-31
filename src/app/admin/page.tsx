@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
+import PostForm from '../components/postForm'
 
 function AdminPage() {
     
@@ -7,6 +8,7 @@ function AdminPage() {
    <>
  
     <div>
+      <PostForm/>
       AdminPage is  working
     </div>
    </>

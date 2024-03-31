@@ -1,18 +1,22 @@
 import mongoose from "mongoose";
-
+let db:any;
 
 export const connectDB = async () =>{
     try {
-        
+       
         const mongoUrl=process.env.MongoUrl;
 
         if(!mongoUrl){
             throw new Error("Mongo url not seen")
         }
 
-        const db = await mongoose.connect(mongoUrl);
+        if(!db){
+            db = await mongoose.connect(mongoUrl);
+            
+        }
 
-       console.log("Database connected successfully")
+     return db
+       
        
     } catch (error){
         console.log(error);
