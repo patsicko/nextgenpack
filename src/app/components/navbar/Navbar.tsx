@@ -2,15 +2,16 @@ import React from 'react'
 import Links from './navlinks/Links'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
+import { auth } from '@/app/lib/auth';
 
 interface Item {
     title: string;
     path: string;
   }
 
-function Navbar({item}:{item:Item}) {
+async function Navbar({item}:{item:Item}) {
 
-
+  
 
     const pathName=usePathname()
 

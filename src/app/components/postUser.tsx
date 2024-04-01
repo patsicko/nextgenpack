@@ -23,7 +23,7 @@ async function PostUser({userId}:{userId:any}) {
 
     const postUser= await getUser(userId) ;
 
-  
+  console.log("postuser",postUser)
 
 
   return (

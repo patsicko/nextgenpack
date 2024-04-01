@@ -1,9 +1,11 @@
+import SignupComponent from '@/app/components/signup'
 import React from 'react'
+
 
 function Signup() {
   return (
     <div>
-      Signup is working
+      <SignupComponent/>
     </div>
   )
 }

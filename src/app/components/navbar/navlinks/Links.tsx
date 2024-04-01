@@ -1,14 +1,14 @@
 "use client"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { auth } from '@/app/lib/auth'
 
 import React, { useState } from 'react'
 import Navbar from '../Navbar'
+import { handleLogout } from '@/app/lib/serverAction'
 
-function Links() {
+function Links({session}:{session:any}) {
 
-    const session:Boolean=true;
-    const isAdmin:Boolean=true;
 
 const links = [
     {
@@ -29,7 +29,9 @@ const links = [
     },   
 ]
 
-const [isOpen, setIsOpen]=useState(false)
+const [isOpen, setIsOpen]=useState(false);
+
+
 
   return (
     <>
@@ -43,15 +45,18 @@ const [isOpen, setIsOpen]=useState(false)
        {
        session ? (
        <>
-       {isAdmin && <Navbar item={{title:"admin",path:'/admin'}}/>}
+       {session?.user?.isAdmin && <Navbar item={{title:"admin",path:'/admin'}}/>}
+
+       <form action={handleLogout}>
         <button className='p-[10px cursor-pointer'>Logout</button>
-    
+        </form>
        </>
        ):
        
        (
        <>
        <Navbar item ={{title:"login",path:"/login"}}/>
+       <Navbar item ={{title:"signup",path:"/signup"}}/>
        </>
        
        )
@@ -67,8 +72,12 @@ const [isOpen, setIsOpen]=useState(false)
       {
       isOpen && (session ? (
        <>
-       {isAdmin && <div className='w-[100px]'><Navbar item={{title:"admin",path:'/admin'}}/></div>}
-        <button className='ml-[10px]'>Logout</button>
+       {session?.user?.isAdmin && <div className='w-[100px]'><Navbar item={{title:"admin",path:'/admin'}}/></div>}
+
+       <form action={handleLogout}>
+       <button className='ml-[10px]'>Logout</button>
+       </form>
+       
     
        </>
        ):

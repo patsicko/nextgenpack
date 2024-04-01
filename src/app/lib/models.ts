@@ -2,9 +2,6 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema
 
-
-
-
 const userSchema = new Schema({
     username:{
         type:String,
@@ -17,9 +14,14 @@ const userSchema = new Schema({
         required:true,
 
     },
+    
+    password:{
+     type:String
+    },
 
     img:{
-        type:   String,
+        type: String,
+        required:true
     },
     isAdmin:{
         type:Boolean,
@@ -39,6 +41,7 @@ const postSchema = new Schema({
     },
     img:{
     type:String,
+    
     },
     userId:{
         type:String,

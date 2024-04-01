@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 
 const fetchPost = async()=>{
-    const data = await fetch('http://localhost:3000/api/blogs',{next:{revalidate:3600}})
+    const data = await fetch('http://localhost:3000/api/blogs',{cache:'no-store'})
 
     if(!data){
         throw new Error('something went wrong')
